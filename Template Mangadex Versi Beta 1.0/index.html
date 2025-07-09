@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beranda - NamaWebsiteManga</title>
+    
+    <!-- Link ke File CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome (untuk Ikon) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <!-- Bagian Header: Logo, Pencarian, Navigasi -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="site-logo">NamaWeb</a>
+            <div class="search-bar">
+                <input type="text" placeholder="Cari manga...">
+                <button aria-label="Cari"><i class="fas fa-search"></i></button>
+            </div>
+            <nav class="main-nav">
+                <a href="daftar-manga.html">Daftar Manga</a>
+                <a href="terbaru.html">Terbaru</a>
+                <a href="daftar-manga.html?action=open_filter" id="filter-modal-trigger" class="filter-trigger-btn"><i class="fas fa-filter"></i> Filter</a>
+                <a href="#" class="login-button">Login</a>
+            </nav>
+            <button class="mobile-menu-button" aria-label="Buka Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Konten Utama Halaman -->
+    <main>
+        <!-- Section untuk Pembaruan Terbaru -->
+        <section id="latest-updates" class="content-section">
+            <h2>Pembaruan Terbaru</h2>
+            <div class="manga-grid">
+                <!-- Kartu Manga Baru Anda -->
+                <article class="manga-card">
+                    <a href="manga-detail.html">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhkuZpwDHu_I04-VBU1msi6PQa6ZIGb05QYvdvFFLwtA2vM9hehyfgK6Bp3xsFhDSXGDWhQWhqivkgLwdc-id2En91ZnSDCe_q81hwU2UpzHffAt6_v93zZS8-BP8DYq01Bz0PIjo6vLnCNX4RRPS6ZQDlNs9u8ZyfFvkggOIZT2HUJkcCKI4qAnfAnRwE/w340/6e7d48e7-480a-467e-a422-fc60c5c10c7e.jpg" alt="Sampul Danjo Hi 1:5 no Sekai...">
+                        <div class="manga-card-overlay">
+                            <span>Chapter 1</span>
+                        </div>
+                        <h3 class="manga-card-title">Danjo Hi 1:5 no Sekai...</h3>
+                    </a>
+                </article>
+                <!-- Contoh Kartu Manga Lainnya -->
+                <script>
+                    for (let i = 2; i <= 10; i++) {
+                        document.write(`
+                        <article class="manga-card">
+                            <a href="#">
+                                <img src="https://placehold.co/400x600/282828/f0f0f0?text=Cover" alt="Sampul Manga">
+                                <div class="manga-card-overlay">
+                                    <span>Chapter ${Math.floor(Math.random() * 100) + 1}</span>
+                                </div>
+                                <h3 class="manga-card-title">Manga Contoh ${i}</h3>
+                            </a>
+                        </article>
+                        `);
+                    }
+                </script>
+            </div>
+        </section>
+    </main>
+
+    <!-- Bagian Footer -->
+    <footer>
+        <p>&copy; 2025 NamaWebsiteManga. Semua Hak Cipta Dilindungi.</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Terbaru - NamaWebsiteManga</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="site-logo">NamaWeb</a>
+            <div class="search-bar">
+                <input type="text" placeholder="Cari manga...">
+                <button aria-label="Cari"><i class="fas fa-search"></i></button>
+            </div>
+            <!-- Ganti blok <nav> yang lama dengan yang ini -->
+<nav class="main-nav">
+    <a href="daftar-manga.html">Daftar Manga</a>
+    <a href="terbaru.html">Terbaru</a>
+    <!-- Tombol Filter Baru -->
+    <a href="daftar-manga.html?action=open_filter" id="filter-modal-trigger" class="filter-trigger-btn"><i class="fas fa-filter"></i> Filter</a>
+    <a href="#" class="login-button">Login</a>
+</nav>
+            <button class="mobile-menu-button" aria-label="Buka Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="content-section">
+            <h2><i class="fas fa-history"></i> Riwayat Pembaruan</h2>
+
+            <div class="update-list-container">
+                <div class="update-item">
+                    <a href="manga-detail.html" class="update-item-cover">
+                        <img src="https://placehold.co/150x225/282828/f0f0f0?text=Cover" alt="Sampul Manga">
+                    </a>
+                    <div class="update-item-info">
+                        <a href="manga-detail.html" class="update-item-title">Judul Manga yang Sangat Panjang Sekali Agar Bisa Diuji Tampilannya</a>
+                        <div class="update-item-chapters">
+                            <a href="reader.html" class="chapter-link">Chapter 121</a>
+                            <a href="reader.html" class="chapter-link">Chapter 120</a>
+                        </div>
+                    </div>
+                    <div class="update-item-time">
+                        <i class="fas fa-clock"></i> 5 menit yang lalu
+                    </div>
+                </div>
+
+                <div class="update-item">
+                    <a href="manga-detail.html" class="update-item-cover">
+                        <img src="https://placehold.co/150x225/282828/f0f0f0?text=Cover" alt="Sampul Manga">
+                    </a>
+                    <div class="update-item-info">
+                        <a href="manga-detail.html" class="update-item-title">One-Punch Man</a>
+                        <div class="update-item-chapters">
+                            <a href="reader.html" class="chapter-link">Chapter 85</a>
+                        </div>
+                    </div>
+                    <div class="update-item-time">
+                        <i class="fas fa-clock"></i> 2 jam yang lalu
+                    </div>
+                </div>
+                
+                <script>
+                    for (let i = 3; i <= 15; i++) {
+                        document.write(`
+                        <div class="update-item">
+                            <a href="manga-detail.html" class="update-item-cover">
+                                <img src="https://placehold.co/150x225/282828/f0f0f0?text=Cover" alt="Sampul Manga">
+                            </a>
+                            <div class="update-item-info">
+                                <a href="manga-detail.html" class="update-item-title">Manga Contoh Lainnya #${i}</a>
+                                <div class="update-item-chapters">
+                                    <a href="reader.html" class="chapter-link">Chapter ${Math.floor(Math.random() * 50) + 1}</a>
+                                </div>
+                            </div>
+                            <div class="update-item-time">
+                                <i class="fas fa-clock"></i> ${i} jam yang lalu
+                            </div>
+                        </div>
+                        `);
+                    }
+                </script>
+            </div>
+
+            <!-- Kontrol Paginasi (akan diisi oleh JavaScript) -->
+<nav class="pagination" id="pagination-wrapper"></nav>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 NamaWebsiteManga. Semua Hak Cipta Dilindungi.</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

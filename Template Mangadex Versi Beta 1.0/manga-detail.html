@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danjo Hi 1:5 no Sekai... - NamaWebsiteManga</title>
+    
+    <!-- Link ke File CSS (file yang sama) -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome (untuk Ikon) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <!-- Bagian Header -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="site-logo">NamaWeb</a>
+            <div class="search-bar">
+                <input type="text" placeholder="Cari manga...">
+                <button aria-label="Cari"><i class="fas fa-search"></i></button>
+            </div>
+            <nav class="main-nav">
+                <a href="daftar-manga.html">Daftar Manga</a>
+                <a href="terbaru.html">Terbaru</a>
+                <a href="daftar-manga.html?action=open_filter" id="filter-modal-trigger" class="filter-trigger-btn"><i class="fas fa-filter"></i> Filter</a>
+                <a href="#" class="login-button">Login</a>
+            </nav>
+            <button class="mobile-menu-button" aria-label="Buka Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Konten Utama Halaman Detail -->
+    <main>
+        <section class="content-section">
+            <div class="manga-detail-layout">
+                
+                <!-- Kolom Kiri: Sampul dan Info Singkat -->
+                <aside class="info-wrapper">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhkuZpwDHu_I04-VBU1msi6PQa6ZIGb05QYvdvFFLwtA2vM9hehyfgK6Bp3xsFhDSXGDWhQWhqivkgLwdc-id2En91ZnSDCe_q81hwU2UpzHffAt6_v93zZS8-BP8DYq01Bz0PIjo6vLnCNX4RRPS6ZQDlNs9u8ZyfFvkggOIZT2HUJkcCKI4qAnfAnRwE/w340/6e7d48e7-480a-467e-a422-fc60c5c10c7e.jpg" alt="Sampul Manga" class="manga-cover">
+                    <div class="action-buttons">
+                        <a href="reader.html" class="btn btn-primary">Baca Chapter 1</a>
+                        <a href="#" class="btn btn-secondary"><i class="fas fa-heart"></i> Ikuti</a>
+                    </div>
+                    <div class="manga-meta">
+                        <h3>Informasi</h3>
+                        <ul>
+                            <li>
+                                <strong>Author:</strong> 
+                                <span><a href="daftar-manga.html?author=MIFUJI+Koutarou">MIFUJI Koutarou</a></span>
+                            </li>
+                            <li>
+                                <strong>Status:</strong> 
+                                <span><a href="daftar-manga.html?status=Ongoing">Ongoing</a></span>
+                            </li>
+                            <li>
+                                <strong>Jenis:</strong> 
+                                <span><a href="daftar-manga.html?type=Manga">Manga</a></span>
+                            </li>
+                            <li>
+                                <strong>Genre:</strong> 
+                                <span class="genre-tags">
+                                    <a href="daftar-manga.html?genre=Harem">Harem</a>, 
+                                    <a href="daftar-manga.html?genre=Isekai">Isekai</a>, 
+                                    <a href="daftar-manga.html?genre=Romance">Romance</a>, 
+                                    <a href="daftar-manga.html?genre=Shounen">Shounen</a>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </aside>
+
+                <!-- Kolom Kanan: Judul, Sinopsis, Daftar Chapter -->
+                <article class="details-wrapper">
+                    <h1 class="manga-title">Danjo Hi 1:5 no Sekai demo Futsuu ni Ikirareru to Omotta? Gekiomo Kanjou na Kanojo-tachi ga Mujikaku Danshi ni Hanrou saretara</h1>
+                    <div class="synopsis">
+                        <p><strong>Judul Lain:</strong></p>
+                        <p>男女比1：5の世界でも普通に生きられると思った？</p>
+                        <p>Danjo no Hiritu ga 1:5 no Sekai de, Futsū ni Ikirareru to Omotteta?</p>
+                    </div>
+
+                    <div class="chapter-list">
+                        <h3><i class="fas fa-list-ul"></i> Daftar Chapter</h3>
+                        <ul>
+                            <li><a href="reader.html"><span>Chapter 1</span> <span class="chapter-date">Baru ditambahkan</span></a></li>
+                            <!-- Chapter selanjutnya akan ditambahkan di sini -->
+                        </ul>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Bagian Footer -->
+    <footer>
+        <p>&copy; 2025 NamaWebsiteManga. Semua Hak Cipta Dilindungi.</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
