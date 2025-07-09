@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baca Danjo Hi 1:5... Chapter 1 - NamaWebsiteManga</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body class="reader-page-body">
+
+    <!-- Navigasi Atas (Akan disembunyikan/ditampilkan oleh JS) -->
+    <nav class="reader-controls desktop-only reader-ui">
+        <div class="reader-nav-container">
+            <a href="manga-detail.html" class="back-to-detail"><i class="fas fa-arrow-left"></i> Kembali ke Detail</a>
+            <select id="chapter-select-desktop">
+                <option value="#">Chapter 1</option>
+            </select>
+            <div class="nav-buttons">
+                <a href="#" class="btn-nav disabled" id="prev-btn-desktop"><i class="fas fa-chevron-left"></i> <span>Prev</span></a>
+                <a href="#" class="btn-nav disabled" id="next-btn-desktop"><span>Next</span> <i class="fas fa-chevron-right"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Konten Utama: Gambar Manga -->
+    <main class="reader-main">
+        <div class="reader-images" id="image-container">
+            <!-- Gambar-gambar halaman manga -->
+            <img src="https://i.ibb.co/JjGpZqws/001.jpg" alt="Halaman 1" border="0">
+            <img src="https://i.ibb.co/YTY2HD29/002.jpg" alt="Halaman 2" border="0">
+            <img src="https://i.ibb.co/cK7Y8sqY/003.jpg" alt="Halaman 3" border="0">
+            <img src="https://i.ibb.co/z3GpYHX/004.jpg" alt="Halaman 4" border="0">
+            <img src="https://i.ibb.co/tk0xVQy/005.jpg" alt="Halaman 5" border="0">
+            <img src="https://i.ibb.co/rRbRgRh2/006.jpg" alt="Halaman 6" border="0">
+            <img src="https://i.ibb.co/TB4TqS0x/007.jpg" alt="Halaman 7" border="0">
+            <img src="https://i.ibb.co/Z6rWDZVv/008.jpg" alt="Halaman 8" border="0">
+            <img src="https://i.ibb.co/7Jq8xCnP/009.jpg" alt="Halaman 9" border="0">
+        </div>
+    </main>
+
+    <!-- Navigasi Bawah (Akan disembunyikan/ditampilkan oleh JS) -->
+    <nav class="reader-controls desktop-only reader-ui">
+        <div class="reader-nav-container">
+            <a href="manga-detail.html" class="back-to-detail"><i class="fas fa-arrow-left"></i> Kembali ke Detail</a>
+            <select id="chapter-select-desktop-2">
+                <option value="#">Chapter 1</option>
+            </select>
+            <div class="nav-buttons">
+                <a href="#" class="btn-nav disabled" id="prev-btn-desktop-2"><i class="fas fa-chevron-left"></i> <span>Prev</span></a>
+                <a href="#" class="btn-nav disabled" id="next-btn-desktop-2"><span>Next</span> <i class="fas fa-chevron-right"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Tombol Opsi Mengambang (Hanya untuk Mobile) -->
+    <button id="mobile-reader-options-btn" class="mobile-only reader-ui" aria-label="Buka Opsi">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Menu Opsi Tersembunyi (Hanya untuk Mobile) -->
+    <div id="mobile-reader-menu" class="mobile-only reader-ui">
+        <div class="mobile-menu-header">
+            <h4>Navigasi Chapter</h4>
+            <button id="close-mobile-menu-btn" aria-label="Tutup Menu">&times;</button>
+        </div>
+        <div class="mobile-menu-content">
+            <select id="chapter-select-mobile">
+                <option value="#">Chapter 1</option>
+            </select>
+            <div class="nav-buttons">
+                <a href="#" class="btn-nav disabled" id="prev-btn-mobile"><i class="fas fa-chevron-left"></i> <span>Prev</span></a>
+                <a href="#" class="btn-nav disabled" id="next-btn-mobile"><span>Next</span> <i class="fas fa-chevron-right"></i></a>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+
+</body>
+</html>

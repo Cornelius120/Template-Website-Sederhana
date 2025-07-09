@@ -1,0 +1,872 @@
+/* =================================================================
+// STYLE.CSS LENGKAP - WEBSITE MANGA
+// Versi dengan: Semua Fitur & Perbaikan UI Reader Mobile
+// ================================================================= */
+
+/* --- Variabel Warna dan Font (Root) --- */
+:root {
+  --bg-color-dark: #121212; /* Warna latar belakang utama yang sangat gelap */
+  --surface-color: #1e1e1e; /* Warna untuk 'permukaan' seperti kartu, header */
+  --primary-color: #6a48d7; /* Warna aksen ungu/biru */
+  --primary-hover-color: #7b5ae0;
+  --text-color: #e0e0e0; /* Warna teks utama (putih pudar) */
+  --text-secondary: #a0a0a0; /* Warna teks sekunder (abu-abu) */
+  --border-color: #333333; /* Warna untuk garis batas */
+  --font-family: "Poppins", sans-serif;
+  --container-width: 1200px;
+}
+
+/* --- Reset & Gaya Dasar Body --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color-dark);
+  color: var(--text-color);
+  font-family: var(--font-family);
+  line-height: 1.6;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--primary-hover-color);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.content-section {
+  max-width: var(--container-width);
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid var(--primary-color);
+  padding-left: 1rem;
+}
+
+/* --- Header & Navigasi --- */
+header {
+  background-color: var(--surface-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+.search-bar {
+  flex-grow: 1;
+  margin: 0 2rem;
+  display: flex;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 20px 0 0 20px;
+  background-color: var(--bg-color-dark);
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
+.search-bar input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.search-bar button {
+  padding: 0.75rem 1.2rem;
+  border: 1px solid var(--border-color);
+  border-left: none;
+  border-radius: 0 20px 20px 0;
+  background-color: var(--bg-color-dark);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.search-bar button:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.main-nav a {
+  margin: 0;
+  font-weight: 500;
+  color: var(--text-secondary);
+  padding: 0.25rem 0.5rem;
+}
+
+.main-nav a.login-button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  transition: background-color 0.3s;
+}
+.main-nav a.login-button:hover {
+  background-color: var(--primary-hover-color);
+  color: white;
+}
+
+.mobile-menu-button {
+  display: none; /* Sembunyikan di desktop */
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* --- Grid Manga --- */
+.manga-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1.5rem;
+}
+
+.manga-card {
+  background-color: var(--surface-color);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.manga-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.manga-card a {
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.manga-card-title {
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.75rem;
+  flex-grow: 1;
+}
+
+.manga-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 0.3rem 0.7rem;
+  border-radius: 8px 0 8px 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* --- Footer --- */
+footer {
+  text-align: center;
+  padding: 2rem;
+  margin-top: 2rem;
+  background-color: var(--surface-color);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* --- Halaman Detail Manga --- */
+.manga-detail-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 2rem;
+}
+
+.manga-cover {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  margin-bottom: 1.5rem;
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn {
+  display: block;
+  text-align: center;
+  padding: 0.8rem 1rem;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+.btn-primary:hover {
+  background-color: var(--primary-hover-color);
+  color: white;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+}
+.btn-secondary:hover {
+  background-color: var(--border-color);
+  color: var(--text-color);
+}
+
+.manga-meta h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+.manga-meta ul {
+  list-style: none;
+  font-size: 0.9rem;
+}
+
+.manga-meta li {
+  margin-bottom: 0.5rem;
+}
+
+.manga-meta li strong {
+  color: var(--text-color);
+  width: 80px;
+  display: inline-block;
+}
+
+.manga-meta li span {
+  color: var(--text-secondary);
+}
+
+.manga-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.synopsis {
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+.chapter-list {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+
+.chapter-list h3 {
+  padding: 1rem 1.5rem;
+  font-size: 1.2rem;
+  border-bottom: 1px solid var(--border-color);
+}
+.chapter-list h3 .fas {
+  margin-right: 0.75rem;
+}
+
+.chapter-list ul {
+  list-style: none;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.chapter-list li a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  color: var(--text-color);
+  border-bottom: 1px solid var(--border-color);
+  transition: background-color 0.2s ease;
+}
+.chapter-list li:last-child a {
+  border-bottom: none;
+}
+.chapter-list li a:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--primary-color);
+}
+
+.chapter-date {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* --- Halaman Daftar Manga (Filter & Paginasi) --- */
+.filter-controls {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.filter-btn {
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  padding: 0.6rem 1.2rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  background-color: var(--border-color);
+  color: var(--text-color);
+}
+
+.filter-btn.active {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 3rem;
+}
+
+.pagination a,
+.pagination span {
+  display: inline-block;
+  padding: 0.6rem 1rem;
+  min-width: 40px;
+  text-align: center;
+  border-radius: 5px;
+  color: var(--text-secondary);
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+}
+
+.pagination a:hover {
+  background-color: var(--border-color);
+  color: var(--text-color);
+}
+
+.pagination a.active {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+  font-weight: 600;
+}
+
+.pagination a.disabled {
+  color: #666;
+  pointer-events: none;
+  background-color: transparent;
+}
+
+.pagination .page-ellipsis {
+  background-color: transparent;
+  border: none;
+}
+
+/* --- Halaman Update Terbaru --- */
+.update-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.update-item {
+  display: flex;
+  align-items: center;
+  background-color: var(--surface-color);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  gap: 1rem;
+}
+
+.update-item-cover img {
+  width: 80px;
+  border-radius: 4px;
+}
+
+.update-item-info {
+  flex-grow: 1;
+}
+
+.update-item-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-color);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.update-item-title:hover {
+  color: var(--primary-color);
+}
+
+.update-item-chapters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.chapter-link {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  padding: 0.25rem 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 15px;
+}
+.chapter-link:hover {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.update-item-time {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  width: 150px;
+  text-align: right;
+  flex-shrink: 0;
+}
+.update-item-time .fas {
+  margin-right: 0.5rem;
+}
+
+/* --- Gaya untuk Link Metadata di Halaman Detail --- */
+.manga-meta ul li span a {
+  color: var(--text-secondary);
+  text-decoration: underline;
+  text-decoration-color: var(--border-color);
+  text-decoration-thickness: 1px;
+  transition: all 0.2s ease;
+}
+
+.manga-meta ul li span a:hover {
+  color: var(--primary-color);
+  text-decoration-color: var(--primary-color);
+}
+
+.genre-tags a {
+  display: inline-block;
+}
+
+/* --- Gaya Tambahan untuk Judul Filter --- */
+.highlight {
+  color: var(--primary-color);
+}
+
+/* --- Tombol Trigger Filter di Header --- */
+.filter-trigger-btn {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+.filter-trigger-btn:hover,
+.filter-trigger-btn.active {
+  color: var(--primary-color);
+}
+.filter-trigger-btn .fas {
+  margin-right: 0.5rem;
+}
+
+/* --- Gaya Modal Filter --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.modal-overlay.visible {
+  display: flex;
+  opacity: 1;
+}
+
+.modal-content {
+  background-color: var(--surface-color);
+  padding: 1.5rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 700px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  transform: scale(0.95);
+  transition: transform 0.3s ease;
+}
+.modal-overlay.visible .modal-content {
+  transform: scale(1);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+.modal-header h3 {
+  font-size: 1.5rem;
+}
+.close-btn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.modal-body {
+  overflow-y: auto;
+  padding-right: 1rem;
+}
+
+.filter-group {
+  margin-bottom: 1.5rem;
+}
+.filter-group h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-color);
+}
+
+.radio-group,
+.checkbox-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+}
+
+.radio-group label,
+.checkbox-grid label {
+  cursor: pointer;
+  color: var(--text-secondary);
+}
+.radio-group input,
+.checkbox-grid input {
+  margin-right: 0.5rem;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+
+/* Mencegah body scroll saat modal terbuka */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* =================================================================
+// BAGIAN YANG DIPERBARUI: Halaman Baca (Reader)
+// ================================================================= */
+
+.reader-page-body {
+  padding: 0;
+}
+
+.reader-controls {
+  padding: 1rem 0;
+  background-color: var(--bg-color-dark);
+  position: fixed;
+  width: 100%;
+  left: 0;
+  z-index: 1500;
+}
+.reader-controls:first-of-type {
+  top: 0;
+}
+.reader-controls:last-of-type {
+  bottom: 0;
+}
+
+.reader-nav-container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.reader-controls .back-to-detail {
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.reader-controls select {
+  background-color: var(--surface-color);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+
+.reader-controls .nav-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.reader-controls .btn-nav {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.reader-controls .btn-nav.disabled {
+  color: #555;
+  background-color: transparent;
+  border-color: #444;
+  pointer-events: none;
+}
+
+.reader-main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0;
+  cursor: pointer;
+}
+
+.reader-images img {
+  width: 100%;
+  display: block;
+}
+
+/* --- Kontrol UI Imersif --- */
+.reader-ui {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  pointer-events: none;
+}
+
+body.ui-visible .reader-ui {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* --- Kontrol Khusus Mobile (DIPERBARUI) --- */
+#mobile-reader-options-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  z-index: 1500;
+}
+
+#mobile-reader-menu {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--surface-color);
+  border-top: 2px solid var(--border-color); /* Pertebal garis batas */
+  z-index: 1600;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  padding: 1rem; /* Sesuaikan padding */
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+body.mobile-menu-open #mobile-reader-menu {
+  transform: translateY(0);
+}
+
+.mobile-menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.mobile-menu-header h4 {
+  font-size: 1.1rem; /* Sedikit lebih kecil agar pas */
+  font-weight: 600;
+}
+#close-mobile-menu-btn {
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0.25rem; /* Beri area klik */
+}
+
+.mobile-menu-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem; /* Beri jarak lebih */
+}
+.mobile-menu-content select {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  background-color: var(--bg-color-dark);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+.mobile-menu-content .nav-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.mobile-menu-content .btn-nav {
+  flex-grow: 1;
+  text-align: center;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  /* Tambahan untuk memastikan ikon dan teks sejajar */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* --- Aturan Responsif --- */
+.mobile-only {
+  display: none;
+}
+.desktop-only {
+  display: block;
+}
+
+@media (max-width: 992px) {
+  .main-nav {
+    display: none;
+  }
+  .mobile-menu-button {
+    display: block;
+  }
+  .main-nav.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    width: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none;
+  }
+  .mobile-only {
+    display: flex;
+  }
+  .manga-detail-layout {
+    grid-template-columns: 1fr;
+  }
+  .manga-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .header-container {
+    flex-wrap: wrap;
+  }
+  .search-bar {
+    order: 3;
+    width: 100%;
+    margin: 1rem 0 0 0;
+  }
+  .manga-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  .update-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .update-item-time {
+    text-align: left;
+    width: auto;
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+  }
+}

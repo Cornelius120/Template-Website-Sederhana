@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Manga - NamaWebsiteManga</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <!-- Bagian Header -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="site-logo">NamaWeb</a>
+            <div class="search-bar">
+                <input type="text" placeholder="Cari manga...">
+                <button aria-label="Cari"><i class="fas fa-search"></i></button>
+            </div>
+            <nav class="main-nav">
+                <a href="daftar-manga.html">Daftar Manga</a>
+                <a href="terbaru.html">Terbaru</a>
+                <a href="#" id="filter-modal-trigger" class="filter-trigger-btn"><i class="fas fa-filter"></i> Filter</a>
+                <a href="#" class="login-button">Login</a>
+            </nav>
+            <button class="mobile-menu-button" aria-label="Buka Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Konten Utama Halaman -->
+    <main>
+        <section class="content-section">
+            <h2><i class="fas fa-book-open"></i> Semua Manga</h2>
+
+            <!-- Kontrol Filter (sekarang ada di dalam modal) -->
+            <!-- Kita bisa menghapus tombol filter lama jika mau, atau biarkan sebagai alternatif -->
+            <!-- <div class="filter-controls"> ... </div> -->
+
+            <!-- Grid Manga -->
+            <div class="manga-grid">
+                <!-- Kartu Manga Baru Anda (ditambahkan secara manual) -->
+                <article class="manga-card" 
+                    data-type="manga" 
+                    data-status="ongoing"
+                    data-genres="harem,isekai,romance,shounen"
+                    data-title="Danjo Hi 1:5 no Sekai demo Futsuu ni Ikirareru to Omotta?">
+                    <a href="manga-detail.html">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhkuZpwDHu_I04-VBU1msi6PQa6ZIGb05QYvdvFFLwtA2vM9hehyfgK6Bp3xsFhDSXGDWhQWhqivkgLwdc-id2En91ZnSDCe_q81hwU2UpzHffAt6_v93zZS8-BP8DYq01Bz0PIjo6vLnCNX4RRPS6ZQDlNs9u8ZyfFvkggOIZT2HUJkcCKI4qAnfAnRwE/w340/6e7d48e7-480a-467e-a422-fc60c5c10c7e.jpg" alt="Sampul Danjo Hi 1:5 no Sekai...">
+                        <div class="manga-card-overlay">
+                            <span>Chapter 1</span>
+                        </div>
+                        <h3 class="manga-card-title">Danjo Hi 1:5 no Sekai...</h3>
+                    </a>
+                </article>
+
+                <!-- Contoh Kartu Manga Lainnya (dibuat oleh script) -->
+                <script>
+                    const mangaTypes = ['Manga', 'Manhwa', 'Manhua', 'Doujin'];
+                    const statuses = ['Ongoing', 'Completed', 'Hiatus'];
+                    const genres = ['Action', 'Comedy', 'Romance', 'Fantasy', 'Isekai', 'Drama'];
+
+                    for (let i = 2; i <= 24; i++) {
+                        const randomType = mangaTypes[Math.floor(Math.random() * mangaTypes.length)];
+                        const randomStatus = statuses[Math.floor(Math.random() * statuses.length)];
+                        const randomGenres = genres.sort(() => 0.5 - Math.random()).slice(0, Math.floor(Math.random() * 3) + 1);
+
+                        document.write(`
+                        <article class="manga-card" 
+                            data-type="${randomType.toLowerCase()}" 
+                            data-status="${randomStatus.toLowerCase()}"
+                            data-genres="${randomGenres.map(g => g.toLowerCase()).join(',')}"
+                            data-title="Judul Seri Manga ${i}">
+                            <a href="#">
+                                <img src="https://placehold.co/400x600/282828/f0f0f0?text=${randomType}" alt="Sampul Manga">
+                                <div class="manga-card-overlay">
+                                    <span>Chapter ${Math.floor(Math.random() * 200) + 1}</span>
+                                </div>
+                                <h3 class="manga-card-title">Judul Seri Manga ${i}</h3>
+                            </a>
+                        </article>
+                        `);
+                    }
+                </script>
+            </div>
+
+            <!-- Kontrol Paginasi (akan diisi oleh JavaScript) -->
+            <nav class="pagination" id="pagination-wrapper"></nav>
+
+        </section>
+    </main>
+
+    <!-- Bagian Footer -->
+    <footer>
+        <p>&copy; 2025 NamaWebsiteManga. Semua Hak Cipta Dilindungi.</p>
+    </footer>
+
+    <!-- Filter Modal (tetap di sini) -->
+    <div id="filter-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Filter Lanjutan</h3>
+                <button id="close-modal-btn" class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <!-- Filter Kategori -->
+                <div class="filter-group">
+                    <h4>Kategori</h4>
+                    <div class="radio-group">
+                        <label><input type="radio" name="filter-type" value="semua" checked> Semua</label>
+                        <label><input type="radio" name="filter-type" value="manga"> Manga</label>
+                        <label><input type="radio" name="filter-type" value="manhwa"> Manhwa</label>
+                        <label><input type="radio" name="filter-type" value="manhua"> Manhua</label>
+                        <label><input type="radio" name="filter-type" value="doujin"> Doujin</label>
+                    </div>
+                </div>
+                <!-- Filter Status -->
+                <div class="filter-group">
+                    <h4>Status</h4>
+                    <div class="radio-group">
+                        <label><input type="radio" name="filter-status" value="semua" checked> Semua</label>
+                        <label><input type="radio" name="filter-status" value="ongoing"> Ongoing</label>
+                        <label><input type="radio" name="filter-status" value="completed"> Completed</label>
+                        <label><input type="radio" name="filter-status" value="hiatus"> Hiatus</label>
+                    </div>
+                </div>
+                <!-- Filter Urutan -->
+                <div class="filter-group">
+                    <h4>Urutkan Berdasarkan</h4>
+                    <div class="radio-group">
+                        <label><input type="radio" name="filter-order" value="update" checked> Terbaru</label>
+                        <label><input type="radio" name="filter-order" value="a-z"> A-Z</label>
+                        <label><input type="radio" name="filter-order" value="z-a"> Z-A</label>
+                    </div>
+                </div>
+                <!-- Filter Genre -->
+                <div class="filter-group">
+                    <h4>Genre</h4>
+                    <div class="checkbox-grid">
+                        <label><input type="checkbox" name="filter-genre" value="action"> Action</label>
+                        <label><input type="checkbox" name="filter-genre" value="adventure"> Adventure</label>
+                        <label><input type="checkbox" name="filter-genre" value="comedy"> Comedy</label>
+                        <label><input type="checkbox" name="filter-genre" value="drama"> Drama</label>
+                        <label><input type="checkbox" name="filter-genre" value="fantasy"> Fantasy</label>
+                        <label><input type="checkbox" name="filter-genre" value="harem"> Harem</label>
+                        <label><input type="checkbox" name="filter-genre" value="isekai"> Isekai</label>
+                        <label><input type="checkbox" name="filter-genre" value="magic"> Magic</label>
+                        <label><input type="checkbox" name="filter-genre" value="romance"> Romance</label>
+                        <label><input type="checkbox" name="filter-genre" value="school"> School</label>
+                        <label><input type="checkbox" name="filter-genre" value="sci-fi"> Sci-Fi</label>
+                        <label><input type="checkbox" name="filter-genre" value="shounen"> Shounen</label>
+                        <label><input type="checkbox" name="filter-genre" value="slice of life"> Slice of Life</label>
+                        <label><input type="checkbox" name="filter-genre" value="supernatural"> Supernatural</label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="reset-filter-btn" class="btn btn-secondary">Reset</button>
+                <button id="apply-filter-btn" class="btn btn-primary">Terapkan Filter</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
